@@ -21,8 +21,9 @@ public class cliente {
     }
 
     public void initCliente() {
-        Scanner teclado = new Scanner(System.in);
         try {
+            Scanner teclado = new Scanner(System.in);
+
             sc = new Socket(HOST, PUERTO);
             salida = new DataOutputStream(sc.getOutputStream());
             entrada = new DataInputStream(sc.getInputStream());
@@ -39,7 +40,6 @@ public class cliente {
                 System.out.println(mensajeRecibido);
 
             }
-            sc.close();
 
         } catch (UnknownHostException e) {
             e.printStackTrace();
