@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class hilos extends Thread {
 
-    server s = new server();
+    server s;
     DataOutputStream salida;
     DataInputStream entrada;
     String msn = "";
@@ -17,8 +17,7 @@ public class hilos extends Thread {
     public hilos(server ser, Socket socket, int num){
         s = ser;
         s.sCliente = socket;
-
-
+        s.nCliente = num;
     }
 
     public void run() {
@@ -32,9 +31,8 @@ public class hilos extends Thread {
                 while (true && !msn.equals("Salida()")) {
 
                     s.mensajeRecibido = entrada.readUTF();//Leemos respuesta
+                    salida.writeUTF(s.mensajeRecibido);
                     System.out.println(s.mensajeRecibido);
-                    msn = teclado.nextLine();
-                    salida.writeUTF("[" + s.Nick + "]: " + msn);
                 }
             }
             else{
