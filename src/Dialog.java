@@ -1,3 +1,5 @@
+import com.company.HiloCliente;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +9,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class Dialog {
+
     private JPanel panel1;
     private JTextField textField1;
     private JTextArea textArea1;
