@@ -26,7 +26,8 @@ public class Servidor {
                     Thread thread = new Thread(cliente);
                     thread.start();
                     nCliente++;
-                    if(!socket.isConnected()){
+                    if(nCliente>=10){
+                        socket.close();
                         nCliente--;
                     }
                 }
@@ -56,6 +57,8 @@ public class Servidor {
         Servidor servidor = new Servidor(serverSocket);
         servidor.encenderServer();
     }
+
+
 }
 
 
